@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remote fetch="https://github.com/xiaomi-sm8450-kernel/" name="xiaomi-sm8450-kernel" revision="zeus-s-oss"/>
+  <remote fetch="https://github.com/mondrian-development/" name="mondrian-development" revision="mondrian-s-oss"/>
   <remote fetch="https://git.codelinaro.org/clo/la" name="clo" review="codelinaro.org"/>
   <default remote="clo" revision="kernel.build.lnx.1.0" sync-j="8"/>
 
   <!-- Kernel platform manifest -->
-  <project name="android_kernel_platform_build" path="kernel_platform/build" upstream="refs/heads/kernel.lnx.5.10.r1-rel" remote="xiaomi-sm8450-kernel"/>
+  <project name="android_kernel_platform_build" path="kernel_platform/build" upstream="refs/heads/kernel.lnx.5.10.r1-rel" remote="mondrian-development"/>
   <project groups="qki" name="kernel/common" path="kernel_platform/common" revision="061410a787bbe35cea1e70c63daf597323f8cd2c" upstream="refs/heads/ks-kernel.lnx.1.0.r1-rel"/>
-  <project name="android_kernel_platform_msm-kernel" path="kernel_platform/msm-kernel" upstream="refs/heads/kernel.lnx.5.10.r1-rel" remote="xiaomi-sm8450-kernel">
+  <project name="android_kernel_xiaomi_mondrian" path="kernel_platform/msm-kernel" upstream="refs/heads/kernel.lnx.5.10.r1-rel" remote="mondrian-development">
     <linkfile dest="kernel_platform/common/build.config.msm.waipio" src="build.config.msm.waipio"/>
     <linkfile dest="kernel_platform/common/build.config.msm.waipio.tuivm" src="build.config.msm.waipio.tuivm"/>
     <linkfile dest="kernel_platform/common/build.config.msm.lahaina" src="build.config.msm.lahaina"/>
-    <linkfile dest="kernel_platform/common/build.config.msm.cupid" src="build.config.msm.cupid"/>
-    <linkfile dest="kernel_platform/common/build.config.msm.cupid.tuivm" src="build.config.msm.cupid.tuivm"/>
-    <linkfile dest="kernel_platform/common/build.config.msm.zeus" src="build.config.msm.zeus"/>
-    <linkfile dest="kernel_platform/common/build.config.msm.zeus.tuivm" src="build.config.msm.zeus.tuivm"/>
+    <linkfile dest="kernel_platform/common/build.config.msm.mondrian" src="build.config.msm.mondrian"/>
+    <linkfile dest="kernel_platform/common/build.config.msm.mondrian.tuivm" src="build.config.msm.mondrian.tuivm"/>
   </project>
   <project name="kernel/prebuilts/build-tools" path="kernel_platform/prebuilts/kernel-build-tools" revision="10ab783184f77d3ea15bf666426a7138b0f62bfc" upstream="refs/heads/ks-kernel.lnx.1.0.r1-rel"/>
   <project name="kernel_platform/external/dtc" revision="b5a44a6e8c72c9fc5d72c6cff09ee3b9a86da769" upstream="refs/heads/kernel.build.lnx.1.0.r1-rel"/>
@@ -25,24 +23,24 @@
   <project name="kernelplatform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" path="kernel_platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" revision="c9f87ae369034b4942536a1c5bd62e4cd1d828e3" upstream="refs/heads/ks-kernel.lnx.1.0.r1-rel"/>
 
   <!-- Camera manifest -->
-  <project name="android_vendor_qcom_opensource_camera-kernel" path="vendor/qcom/opensource/camera-kernel" upstream="refs/heads/camera-kernel.lnx.5.0.r2-rel" remote="xiaomi-sm8450-kernel">
+  <project name="android_vendor_qcom_opensource_camera-kernel" path="vendor/qcom/opensource/camera-kernel" upstream="refs/heads/camera-kernel.lnx.5.0.r2-rel" remote="mondrian-development">
     <linkfile dest="vendor/qcom/defs/board-defs/vendor/camera-kernel_board.mk" src="board.mk"/>
     <linkfile dest="vendor/qcom/defs/product-defs/vendor/camera-kernel_product.mk" src="product.mk"/>
   </project>
 
   <!-- Display manifest -->
-  <project name="android_vendor_qcom_opensource_display-drivers" path="vendor/qcom/opensource/display-drivers" upstream="refs/heads/display-kernel.lnx.5.10.r3-rel" remote="xiaomi-sm8450-kernel">
+  <project name="android_vendor_qcom_opensource_display-drivers" path="vendor/qcom/opensource/display-drivers" upstream="refs/heads/display-kernel.lnx.5.10.r3-rel" remote="mondrian-development">
     <linkfile dest="vendor/qcom/defs/product-defs/vendor/display_driver_product.mk" src="display_driver_product.mk"/>
     <linkfile dest="vendor/qcom/defs/board-defs/vendor/display_driver_board.mk" src="display_driver_board.mk"/>
   </project>
 
   <!-- Video manifest -->
-  <project groups="cyborg" name="android_vendor_qcom_opensource_mmrm-driver" path="vendor/qcom/opensource/mmrm-driver" upstream="refs/heads/mmrm-kernel-waipio.lnx.1.0.r2-rel" remote="xiaomi-sm8450-kernel">
+  <project groups="cyborg" name="android_vendor_qcom_opensource_mmrm-driver" path="vendor/qcom/opensource/mmrm-driver" upstream="refs/heads/mmrm-kernel-waipio.lnx.1.0.r2-rel" remote="mondrian-development">
     <linkfile dest="vendor/qcom/defs/board-defs/vendor/mmrm_kernel_board.mk" src="mmrm_kernel_board.mk"/>
     <linkfile dest="vendor/qcom/defs/product-defs/vendor/mmrm_kernel_product.mk" src="mmrm_kernel_product.mk"/>
   </project>
   <project groups="cyborg" name="platform/vendor/opensource/mmrm-driver-test" path="vendor/qcom/opensource/mmrm-driver/test" revision="920386f7e50c59310fb0eaecadaae8268582a46d" upstream="refs/heads/mmrm-kernel-waipio.lnx.1.0.r2-rel"/>
-  <project groups="cyborg" name="android_vendor_qcom_opensource_video-driver" path="vendor/qcom/opensource/video-driver" upstream="refs/heads/video-kernel-waipio.lnx.1.0.r2-rel" remote="xiaomi-sm8450-kernel">
+  <project groups="cyborg" name="android_vendor_qcom_opensource_video-driver" path="vendor/qcom/opensource/video-driver" upstream="refs/heads/video-kernel-waipio.lnx.1.0.r2-rel" remote="mondrian-development">
     <linkfile dest="vendor/qcom/defs/product-defs/vendor/video_kernel_product.mk" src="video_kernel_product.mk"/>
     <linkfile dest="vendor/qcom/defs/board-defs/vendor/video_kernel_board.mk" src="video_kernel_board.mk"/>
   </project>
@@ -57,15 +55,15 @@
     <linkfile dest="vendor/qcom/defs/board-defs/vendor/dataipa_dlkm_vendor_board.mk" src="dataipa_dlkm_vendor_board.mk"/>
     <linkfile dest="vendor/qcom/defs/product-defs/vendor/dataipa_dlkm_vendor_product.mk" src="dataipa_dlkm_vendor_product.mk"/>
   </project>
-  <project name="android_vendor_qcom_opensource_eva-kernel" path="vendor/qcom/opensource/eva-kernel" upstream="refs/heads/eva-kernel.lnx.1.0.r1-rel" remote="xiaomi-sm8450-kernel">
+  <project name="android_vendor_qcom_opensource_eva-kernel" path="vendor/qcom/opensource/eva-kernel" upstream="refs/heads/eva-kernel.lnx.1.0.r1-rel" remote="mondrian-development">
     <linkfile dest="vendor/qcom/defs/product-defs/vendor/eva_kernel_product.mk" src="eva_kernel_product.mk"/>
     <linkfile dest="vendor/qcom/defs/board-defs/vendor/eva_kernel_board.mk" src="eva_kernel_board.mk"/>
   </project>
   <project name="platform/vendor/opensource/touch-drivers" path="vendor/qcom/opensource/touch-drivers" revision="7bcfa88cc1988d8496b988020f10366dd145eef1" upstream="refs/heads/touch-kernel.lnx.5.10.r1-rel"/>
   <project name="platform/vendor/qcom-opensource/wlan/fw-api" path="vendor/qcom/opensource/wlan/fw-api" revision="35a085ee7212a942a5b3630383f2e8fdc008d2cc" upstream="refs/heads/wlan-api.lnx.1.0.r68-rel"/>
-  <project name="android_vendor_qcom_opensource_wlan_qca-wifi-host-cmn" path="vendor/qcom/opensource/wlan/qca-wifi-host-cmn" upstream="refs/heads/wlan-cmn.driver.lnx.2.0.r30-rel" remote="xiaomi-sm8450-kernel"/>
-  <project name="android_vendor_qcom_opensource_wlan_qcacld-3.0" path="vendor/qcom/opensource/wlan/qcacld-3.0" upstream="refs/heads/wlan-cld3.driver.lnx.2.0.r30-rel" remote="xiaomi-sm8450-kernel"/>
-  <project name="android_vendor_qcom_opensource_audio-kernel" path="vendor/qcom/opensource/audio-kernel" upstream="refs/heads/audio-kernel.lnx.5.10.r1-rel" remote="xiaomi-sm8450-kernel">
+  <project name="android_vendor_qcom_opensource_wlan_qca-wifi-host-cmn" path="vendor/qcom/opensource/wlan/qca-wifi-host-cmn" upstream="refs/heads/wlan-cmn.driver.lnx.2.0.r30-rel" remote="mondrian-development"/>
+  <project name="android_vendor_qcom_opensource_wlan_qcacld-3.0" path="vendor/qcom/opensource/wlan/qcacld-3.0" upstream="refs/heads/wlan-cld3.driver.lnx.2.0.r30-rel" remote="mondrian-development"/>
+  <project name="android_vendor_qcom_opensource_audio-kernel" path="vendor/qcom/opensource/audio-kernel" upstream="refs/heads/audio-kernel.lnx.5.10.r1-rel" remote="mondrian-development">
     <linkfile dest="vendor/qcom/defs/board-defs/vendor/audio_kernel_vendor_board.mk" src="audio_kernel_vendor_board.mk"/>
     <linkfile dest="vendor/qcom/defs/product-defs/vendor/audio_kernel_product_board.mk" src="audio_kernel_product_board.mk"/>
   </project>
@@ -73,20 +71,20 @@
     <linkfile dest="vendor/qcom/defs/board-defs/vendor/datarmnet_dlkm_vendor_board.mk" src="datarmnet_dlkm_vendor_board.mk"/>
     <linkfile dest="vendor/qcom/defs/product-defs/vendor/datarmnet_dlkm_vendor_product.mk" src="datarmnet_dlkm_vendor_product.mk"/>
   </project>
-  <project name="android_vendor_qcom_opensource_datarmnet-ext" path="vendor/qcom/opensource/datarmnet-ext" upstream="refs/heads/data-kernel.lnx.1.2.r3-rel" remote="xiaomi-sm8450-kernel">
+  <project name="android_vendor_qcom_opensource_datarmnet-ext" path="vendor/qcom/opensource/datarmnet-ext" upstream="refs/heads/data-kernel.lnx.1.2.r3-rel" remote="mondrian-development">
     <linkfile dest="vendor/qcom/defs/board-defs/vendor/datarmnet_ext_dlkm_vendor_board.mk" src="datarmnet_ext_dlkm_vendor_board.mk"/>
     <linkfile dest="vendor/qcom/defs/product-defs/vendor/datarmnet_ext_dlkm_vendor_product.mk" src="datarmnet_ext_dlkm_vendor_product.mk"/>
   </project>
 
   <!-- Proprietary -->
-  <project name="android_vendor_qcom_proprietary_audio-devicetree" path="vendor/qcom/proprietary/audio-devicetree" remote="xiaomi-sm8450-kernel"/>
-  <project name="android_vendor_qcom_proprietary_camera-devicetree" path="vendor/qcom/proprietary/camera-devicetree" remote="xiaomi-sm8450-kernel"/>
-  <project name="android_vendor_qcom_proprietary_display-devicetree" path="vendor/qcom/proprietary/display-devicetree" remote="xiaomi-sm8450-kernel"/>
-  <project name="android_vendor_qcom_proprietary_mmrm-devicetree" path="vendor/qcom/proprietary/mmrm-devicetree" remote="xiaomi-sm8450-kernel"/>
-  <project name="android_vendor_qcom_proprietary_video-devicetree" path="vendor/qcom/proprietary/video-devicetree" remote="xiaomi-sm8450-kernel"/>
+  <project name="android_vendor_qcom_proprietary_audio-devicetree" path="vendor/qcom/proprietary/audio-devicetree" remote="mondrian-development"/>
+  <project name="android_vendor_qcom_proprietary_camera-devicetree" path="vendor/qcom/proprietary/camera-devicetree" remote="mondrian-development"/>
+  <project name="android_vendor_qcom_proprietary_display-devicetree" path="vendor/qcom/proprietary/display-devicetree" remote="mondrian-development"/>
+  <project name="android_vendor_qcom_proprietary_mmrm-devicetree" path="vendor/qcom/proprietary/mmrm-devicetree" remote="mondrian-development"/>
+  <project name="android_vendor_qcom_proprietary_video-devicetree" path="vendor/qcom/proprietary/video-devicetree" remote="mondrian-development"/>
 
   <!-- Build script -->
-  <project name="kernel_platform_script" path="kernel_platform/script" remote="xiaomi-sm8450-kernel">
+  <project name="kernel_platform_script" path="kernel_platform/script" remote="mondrian-development">
     <linkfile dest="build.sh" src="build.sh"/>
   </project>
 </manifest>
